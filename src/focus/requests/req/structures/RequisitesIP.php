@@ -237,7 +237,7 @@ class RequisitesIP implements DtoInterface
         $result = new self();
 
         if (array_key_exists('fio', $data))
-            $result->setFio($data['kpp']);
+            $result->setFio($data['fio']);
 
         if (array_key_exists('okpo', $data))
             $result->setOkpo($data['okpo']);
