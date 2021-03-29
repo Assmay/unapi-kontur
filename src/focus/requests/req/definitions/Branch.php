@@ -8,6 +8,8 @@ class Branch implements DtoInterface
 {
     /** @var string|null */
     private $name;
+    /** @var string|null */
+    private $kpp;
     /** @var ParsedAddressRF|null */
     private $parsedAddressRF;
     /** @var ForeignAddress|null */
@@ -30,6 +32,24 @@ class Branch implements DtoInterface
     public function setName(?string $name): Branch
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKpp(): ?string
+    {
+        return $this->kpp;
+    }
+
+    /**
+     * @param null|string $kpp
+     * @return RequisitesUL
+     */
+    public function setKpp(?string $kpp): Branch
+    {
+        $this->kpp = $kpp;
         return $this;
     }
 
@@ -97,6 +117,9 @@ class Branch implements DtoInterface
 
         if (array_key_exists('name', $data))
             $result->setName($data['name']);
+
+        if (array_key_exists('kpp', $data))
+            $result->setKpp($data['kpp']);
 
         if (array_key_exists('date', $data))
             $result->setDate(Date::convert($data['date']));
